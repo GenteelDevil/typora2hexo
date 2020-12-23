@@ -18,4 +18,10 @@ date: %s
 tags:
 ---
 ''' % (blog_name, now)
-print(file_header)
+
+# 2 add file header
+with open(md_path, "r+") as f:
+    old = f.read()
+    f.seek(0)
+    f.write(file_header)
+    f.write(old)
